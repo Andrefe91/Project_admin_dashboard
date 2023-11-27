@@ -48,10 +48,12 @@ table {
 :root {
     font-family: 'Poppins', sans-serif;
     --main_color: rgb(25, 146, 212);
+    --main_color_hover: rgb(66, 179, 240);
     --white: rgb(255, 255, 255);
     --background_color: rgb(226, 232, 240);
     --contrast_color: rgb(240, 180, 41);
     --right_margin: 2rem;
+    --gray-font-color: rgb(113, 113, 113);
 }
 
 /* * {
@@ -65,7 +67,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: minmax(220px, 250px) 1fr;
     grid-template-rows: 150px 1fr;
     height: 100vh;
     grid-template-areas:
@@ -134,12 +136,13 @@ body {
     display: flex;
     flex-direction: row;
     margin: 1rem 1rem 1rem var(--right_margin);
-    height: 1.5rem;
+    height: 2rem;
 }
 
 #search {
     flex: 1;
 }
+
 
 #search_field {
     border: 1px solid var(--background_color);
@@ -149,6 +152,9 @@ body {
     border-radius: 20px;
     flex: 1 1 auto;
     max-width: max(60%, 700px);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.2rem;
 }
 
 #user_wrapper {
@@ -212,6 +218,10 @@ body {
     font-size: 0.9rem;
 }
 
+#creation_buttons a:hover {
+    background-color: var(--main_color_hover);
+}
+
 .user_greetings {
     min-width: 16rem;
     margin-left: 1rem;
@@ -237,7 +247,7 @@ body {
 
 .content_wrapper {
     display: grid;
-    grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 300px;
     /* hahaha, very funny */
     height: calc(100% - 50px);
     padding: 10px 30px 40px 10px;
@@ -258,17 +268,19 @@ body {
     border-radius: 10px;
     padding: 1.5rem 1rem 1.5rem 1rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    border-left: 6px solid var(--contrast_color);
+    border-left: 8px solid var(--contrast_color);
 
 }
 
 .project_card:hover {
     z-index: 1;
-    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(75, 75, 75, 0.9) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.40) 2.5px 2.5px 10px;
+    /* box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(75, 75, 75, 0.9) 0px 0px 0px 1px; */
 }
 
 .card_content {
     flex: 1;
+    color: var(--gray-font-color);
 }
 
 .buttons_wrapper {
@@ -297,7 +309,7 @@ body {
 .content_title {
     padding: 15px 0px 15px 0px;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .others {
@@ -319,6 +331,46 @@ body {
     border-radius: 10px;
     padding: 1.5rem;
     min-height: 250px;
-    max-height: 300px;
+    flex-direction: column;
+}
+
+
+.other_wrapper >:nth-child(2) {
+    padding: 0.5rem 0 0.5rem 0;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+
+}
+
+.announcement_wrapper {
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.announcement_title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.announcement_content {
+    color: var(--gray-font-color);
+    font-size: 0.9rem;
+}
+
+.users {
+    display: flex;
+    align-items: center;
+}
+
+.user_detail {
+    margin: 1rem;
+}
+
+.user_detail > :first-child{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.user_detail > p + p {
+    color: var(--gray-font-color);
 }
 
